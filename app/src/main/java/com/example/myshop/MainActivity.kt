@@ -2,23 +2,23 @@ package com.example.myshop
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myshop.databinding.ActivityMainBinding
-import com.winnie.myshop.Product
-import com.winnie.myshop.ProductAdapter
+
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class MainActivity : AppCompatActivity() {
     lateinit var binding:ActivityMainBinding
-    var list:List<Product>=emptyList()
+    var productList:List<Product> =emptyList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ProductAdapter=ProductAdapter(emptyList())
+
 
     }
 
@@ -32,7 +32,12 @@ class MainActivity : AppCompatActivity() {
         request.enqueue(object : Callback <ProductResponse> {
             override fun onResponse(call: Call<ProductResponse>, response: Response<ProductResponse>) {
             if (response.isSuccessful){
+
                 var products = response.body()?.product
+                var productsAdapter = ProductAdapter(products?: emptyList())
+                binding.rvRecycler.layoutManager=LinearLayoutManager(this@MainActivity)
+                binding.rvRecycler.adapter = productsAdapter
+
                 Toast.makeText(baseContext,"fetched ${products?.size} products",Toast.LENGTH_LONG).show()
 
             }

@@ -1,6 +1,6 @@
 package com.example.myshop
 
-data class product(
+data class Products(
     var id : Int,
     var title : String,
     var description : String,

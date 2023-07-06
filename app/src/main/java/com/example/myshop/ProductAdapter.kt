@@ -1,4 +1,4 @@
-package com.winnie.myshop
+package com.example.myshop
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

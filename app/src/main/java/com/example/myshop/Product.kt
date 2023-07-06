@@ -2,7 +2,7 @@
 //
 //class Product {
 //}
-package com.winnie.myshop
+package com.example.myshop
 
 data class Product(
     var id:Int,
