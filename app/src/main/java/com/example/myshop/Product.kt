@@ -1,7 +1,4 @@
-//package com.example.myshop
-//
-//class Product {
-//}
+
 package com.example.myshop
 
 data class Product(
