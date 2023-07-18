@@ -1,5 +1,5 @@
 
-package com.example.myshop
+package com.example.myshop.model
 
 data class Product(
     var id:Int,
@@ -8,7 +8,6 @@ data class Product(
     var rating:Double,
     var price:Double,
     var stock:String,
-    var brand:String,
     var category:String,
     var thumbnail:String
 
